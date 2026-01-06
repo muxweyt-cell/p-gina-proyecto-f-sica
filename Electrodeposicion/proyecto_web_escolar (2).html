@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electrodeposición en la minería mexicana</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    body { background: #ffffff; color: #333; }
+
+    /* ===== COLORES POLI ===== */
+    :root {
+      --guinda-oscuro: #5c001f;
+      --guinda: #800020;
+      --blanco: #ffffff;
+      --gris-claro: #f4f4f4;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--guinda-oscuro), var(--guinda));
+      color: var(--blanco);
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    header img {
+      height: 80px;
+      margin-bottom: 15px;
+      background-color: var(--blanco);
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    header h1 { font-size: 2.6rem; margin-bottom: 15px; }
+    header p { max-width: 900px; margin: auto; font-size: 1.1rem; }
+
+    main { max-width: 1200px; margin: auto; padding: 40px 20px; }
+
+    /* ===== GRID 3x3 ===== */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--blanco);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 6px solid var(--guinda);
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,0.18); }
+    .card img { width: 100%; height: 160px; object-fit: cover; }
+    .card h3 { padding: 18px; text-align: center; color: var(--guinda-oscuro); }
+
+    /* ===== SECCIONES ===== */
+    .section { display: none; }
+    .section.active { display: block; }
+
+    .back { display: inline-block; margin-bottom: 20px; color: var(--guinda); font-weight: bold; cursor: pointer; }
+
+    .section h2 { color: var(--guinda-oscuro); margin-bottom: 15px; }
+    .section p { margin-bottom: 20px; line-height: 1.6; }
+
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+    .gallery img { width: 100%; border-radius: 10px; }
+
+    iframe { width: 100%; height: 520px; border: none; border-radius: 12px; }
+
+    footer { background: var(--guinda-oscuro); color: var(--blanco); text-align: center; padding: 20px; margin-top: 40px; }
+
+    /* ===== BOTÓN SECRETO ===== */
+    .hidden { display: none; margin-top: 10px; background-color: var(--gris-claro); padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+    .hidden-team-container button {
+      background-color: var(--guinda);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .hidden-team-container button:hover { background-color: var(--guinda-oscuro); }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="img/Ipn.jpg" alt="Escudo de la escuela">
+  <h1>Electrodeposición en la minería mexicana</h1>
+  <p>
+    La contaminación por metales pesados en efluentes mineros es una amenaza global que requiere tecnologías de remediación sostenibles. A diferencia de los métodos tradicionales que generan lodos peligrosos, la electrodeposición utiliza energía eléctrica para recuperar metales de alta pureza, transformando un pasivo ambiental en un recurso económico.
+  </p>
+</header>
+
+<main>
+
+  <!-- ===== HOME ===== -->
+  <section id="home" class="section active">
+    <h2 style="text-align:center; margin-bottom:25px;">Apartados del proyecto</h2>
+    <div class="grid">
+      <div class="card" onclick="openSection('s1')"><img src="img/obj.jpg"><h3>Objetivos</h3></div>
+      <div class="card" onclick="openSection('s2')"><img src="img/alcance.jpg"><h3>Alcance</h3></div>
+      <div class="card" onclick="openSection('s3')"><img src="img/marco.jpg"><h3>Marco jurídico</h3></div>
+      <div class="card" onclick="openSection('s4')"><img src="img/teorico.jpg"><h3>Marco teórico</h3></div>
+      <div class="card" onclick="openSection('s5')"><img src="img/meto.jpg"><h3>Metodología</h3></div>
+      <div class="card" onclick="openSection('s6')"><img src="img/diseno.png"><h3>Diseño (Modelo 3D)</h3></div>
+      <div class="card" onclick="openSection('s7')"><img src="img/costos.png"><h3>Análisis de costos</h3></div>
+      <div class="card" onclick="openSection('s8')"><img src="img/impacto.jpg"><h3>Impacto ambiental</h3></div>
+      <div class="card" onclick="openSection('s9')"><img src="img/imp.jpg"><h3>Potencial de implementación</h3></div>
+    </div>
+
+    <!-- BOTÓN SECRETO INTEGRANTES -->
+    <div class="hidden-team-container" style="text-align:center;">
+      <button id="showTeamBtn">integrantes</button>
+      <div id="teamInfo" class="hidden">
+        <h3>Integrantes:</h3>
+        <ul style="list-style:none; padding-left:0;">
+          <li>Cibrian Sánchez Nohemí Valeria</li>
+          <li>López D Arbell Camila</li>
+          <li>Minero Segura María Fernanda</li>
+          <li>Ortega Gayosso David</li>
+          <li>Trujillo Flores Adriana Leonor</li>
+          <li>Zúñiga Galán Erick
+</li>
+          <!-- agrega todos los integrantes -->
+        </ul>
+        <img src="img/ft1.jpeg" alt="Foto del equipo" style="width:250px; border-radius:10px; margin-top:10px;">
+        <img src="img/ft2.jpeg" alt="Foto del equipo" style="width:250px; border-radius:10px; margin-top:10px;">
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- ===== SECCIONES ===== -->
+  <section id="s1" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Objetivos</h2>
+    <p>El propósito central es implementar un sistema de tratamiento de aguas residuales industriales basado en electrodeposición. Esto busca reducir la concentración de metales pesados en efluentes mineros para permitir su reutilización o vertido seguro.</p>
+  </section>
+
+  <section id="s2" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Alcance</h2>
+    <p>El proyecto pretende purificar líquidos contaminados con plomo, cobre, cadmio y níquel en plantas de tratamiento mineras. Se espera generar un impacto positivo no solo ambiental, sino también socioeconómico mediante la creación de empleos para su operación y mantenimiento.</p>
+  </section>
+
+  <section id="s3" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Marco jurídico</h2>
+    <p>Se fundamenta en el derecho humano a un medio ambiente sano (Artículo 4º constitucional) y la facultad del Estado para regular recursos naturales (Artículo 27º). Cumple con la LGEEPA, la Ley de Aguas Nacionales y Normas Oficiales Mexicanas como la NOM-001-SEMARNAT-2021 sobre límites de contaminantes en descargas.</p>
+  </section>
+
+  <section id="s4" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Marco teórico</h2>
+    <p>Utiliza la electrólisis, proceso donde la corriente eléctrica separa compuestos en un electrolito a través de electrodos. Específicamente, la electrodeposición ocurre cuando los cationes metálicos migran al cátodo y se reducen, depositándose como metal sólido.</p>
+  </section>
+
+  <section id="s5" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Metodología</h2>
+    <p>Consiste en un diseño conceptual y simulación en AutoCAD, seguido de la selección de materiales como acero inoxidable y titanio. El procedimiento incluye la adición de electrolitos, aplicación de corriente continua y el monitoreo de variables como pH y temperatura para evaluar la eficiencia de remoción.</p>
+  </section>
+
+  <section id="s6" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Diseño del sistema – Modelo 3D</h2>
+    <p>Presenta un modelo 3D con un tanque de acrílico transparente que permite observar el proceso. Incluye conexiones para entrada/salida de agua, electrodos intercambiables (ánodo y cátodo) y pantallas para el control continuo de la temperatura y el pH.</p>
+
+    <div class="sketchfab-embed-wrapper">
+      <iframe 
+        title="modelo 3d fisica" 
+        frameborder="0" 
+        allowfullscreen 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true" 
+        allow="autoplay; fullscreen; xr-spatial-tracking" 
+        xr-spatial-tracking 
+        execution-while-out-of-viewport 
+        execution-while-not-rendered 
+        web-share 
+        src="https://sketchfab.com/models/324ee56316464abca157a963f0efc072/embed">
+      </iframe>
+      <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+        <a href="https://sketchfab.com/3d-models/modelo-3d-fisica-324ee56316464abca157a963f0efc072?utm_medium=embed&utm_campaign=share-popup&utm_content=324ee56316464abca157a963f0efc072" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+          modelo 3d fisica
+        </a> 
+        by 
+        <a href="https://sketchfab.com/Zaggre?utm_medium=embed&utm_campaign=share-popup&utm_content=324ee56316464abca157a963f0efc072" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+          Zaggre
+        </a> 
+        on 
+        <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=324ee56316464abca157a963f0efc072" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">
+          Sketchfab
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section id="s7" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Análisis de costos</h2>
+    <p>Es netamente positivo, logrando eficiencias de remoción de hasta el 99% y minimizando la generación de lodos peligrosos. Además, fomenta la economía circular al recuperar metales y ofrece la posibilidad de integrarse con energía solar en zonas áridas.</p>
+  </section>
+
+  <section id="s8" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Impacto ambiental</h2>
+    <p>La inversión inicial para un prototipo varía entre $45,000 y $79,000 MXN. A escala piloto-industrial, el costo aumenta, pero se compensa con bajos gastos operativos y un ingreso potencial por la venta del metal recuperado (como el cobre), siendo más competitivo que tecnologías como las membranas.</p>
+  </section>
+
+  <section id="s9" class="section">
+    <span class="back" onclick="goHome()">⬅ Volver</span>
+    <h2>Potencial de implementación</h2>
+    <p>Existe una gran oportunidad en la minería mexicana, que utiliza en promedio 152 millones de litros de agua diarios. Al ser una "tecnología limpia" que evita reactivos químicos voluminosos, es ideal para cumplir con las crecientes exigencias de evidencia científica y salud ambiental.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Proyecto 3 de física 2 – Electrodeposición en la minería mexicana</p>
+</footer>
+
+<script>
+  function openSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function goHome() {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('home').classList.add('active');
+  }
+
+  // Botón secreto integrantes
+  const btn = document.getElementById('showTeamBtn');
+  const team = document.getElementById('teamInfo');
+
+  btn.addEventListener('click', () => {
+    if(team.style.display === "block") { team.style.display = "none"; }
+    else { team.style.display = "block"; }
+  });
+</script>
+
+</body>
+</html>
+
